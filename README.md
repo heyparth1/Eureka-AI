@@ -17,7 +17,7 @@ The application uses a modern RAG architecture to achieve high accuracy with a p
 
 1.  **Knowledge Base:** A `knowledge_base.json` file was created by analyzing SimPhy's Java source code. This file acts as a detailed "textbook" of the scripting API.
 2.  **User Prompt:** The user provides a prompt via the web interface.
-3.  **RAG Pipeline (Backend):** The Node.js server receives the prompt, augments it with the entire knowledge base, and sends this rich context to the Google Gemini API.
+3.  **RAG Pipeline (Backend):** The Node.js server receives the prompt, augments it with the entire knowledge base, and sends this rich context to the OpenAI API.
 4.  **Informed Generation:** The AI model uses the provided rules, examples, and API definitions to generate a logically sound and syntactically correct script.
 5.  **Code to User:** The generated script is sent back to the frontend to be displayed and downloaded.
 
@@ -31,7 +31,7 @@ This is the Node.js backend server built with Express.
 * **Serves the Frontend:** It serves the `index.html` file to the user's browser.
 * **API Endpoint:** It creates a `/generate` endpoint that listens for requests from the frontend.
 * **Orchestrates the AI:** It contains the core RAG logic. It reads the `knowledge_base.json`, combines it with the user's prompt and a detailed system prompt (containing rules and examples), and makes the final call to the Google Generative AI API.
-* **Security:** It securely handles the `GEMINI_API_KEY` from the `.env` file, ensuring it's never exposed to the client-side.
+* **Security:** It securely handles the `OPENAI_API_KEY` from the `.env` file, ensuring it's never exposed to the client-side.
 
 ### `index.html`
 This is the complete single-page frontend for the application.
@@ -55,7 +55,7 @@ These are standard Node.js files that manage the project's dependencies.
 
 ### `.env`
 A local, private file used to store secret keys. This file is **not** and **should not** be committed to version control (it should be listed in your `.gitignore` file).
-* **`GEMINI_API_KEY`**: This variable holds your secret API key for the Google AI service.
+* **`OPENAI_API_KEY`**: This variable holds your secret API key for the Google AI service.
 
 ## 🚀 Setup and Installation
 
@@ -76,7 +76,7 @@ To run this project locally, follow these steps:
     * Create a new file named `.env` in the root of the project.
     * Add your Google AI API key to it:
         ```
-        GEMINI_API_KEY="YOUR_API_KEY_HERE"
+        OPENAI_API_KEY="YOUR_API_KEY_HERE"
         ```
 
 4.  **Start the server:**
