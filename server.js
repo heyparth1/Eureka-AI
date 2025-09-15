@@ -7,8 +7,8 @@ require('dotenv').config();
 
 // --- CONFIGURATION ---
 const PORT = 3000;
-const API_KEY = process.env.GEMINI_API_KEY;
-const MODEL_NAME = "gemini-1.5-flash-latest"; // Corrected Model Name
+const API_KEY = process.env.OPENAI_API_KEY;
+const MODEL_NAME = "gpt-4o"; // Corrected Model Name
 
 // --- INITIALIZATION ---
 const app = express();
@@ -16,9 +16,9 @@ app.use(express.json());
 app.use(cors());
 
 if (!API_KEY) {
-  throw new Error("GEMINI_API_KEY is not set. Please create a .env file and add your key.");
+  throw new Error("OPENAI_API_KEY is not set. Please create a .env file and add your key.");
 }
-const genAI = new GoogleGenerativeAI(API_KEY);
+const genAI = new OpenAI({ apiKey: API_KEY });
 
 // --- LOAD THE KNOWLEDGE BASE ---
 let knowledgeBase;
