@@ -3,6 +3,10 @@
 This project is a web-based application that uses a Retrieval-Augmented Generation (RAG) AI model to translate natural language prompts into executable JavaScript code for the SimPhy physics simulation software. Users can describe a complex physics setup in plain English, and the AI will generate the corresponding, accurate simulation script.
 
 
+
+https://github.com/user-attachments/assets/7c6447a9-6497-461f-bc17-89346006545d
+
+
 ## ✨ Key Features
 
 * **Natural Language to Code:** Translates high-level descriptions (e.g., "a pendulum on a moving cart") into precise, runnable code.
